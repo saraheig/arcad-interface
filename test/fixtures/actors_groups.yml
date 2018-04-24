@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  mission: MyString
+  category: false
+  france: false
+  swiss: false
+  nuts: 1
+  administration: false
+  executive: false
+  legislative: false
+
+two:
+  name: MyString
+  mission: MyString
+  category: false
+  france: false
+  swiss: false
+  nuts: 1
+  administration: false
+  executive: false
+  legislative: false

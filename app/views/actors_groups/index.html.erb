@@ -1,0 +1,83 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Catégories d'acteurs</h1>
+<em>
+  Cette table contient l'ensemble des catégories d'acteurs.
+</em>
+
+<hr/>
+<%= link_to 'Ajouter une nouvelle catégorie d\'acteurs', new_actors_group_path %>
+<hr/>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nom</th>
+      <th>Mission</th>
+      <th>Public ?</th>
+      <th>France ?</th>
+      <th>Suisse ?</th>
+      <th>Niveau NUTS</th>
+      <th>Administration ?</th>
+      <th>Exécutif ?</th>
+      <th>Législatif ?</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @actors_groups.each do |actors_group| %>
+      <tr>
+        <td><%= actors_group.name %></td>
+        <td><%= actors_group.mission %></td>
+        <td>
+          <% if actors_group.category == true %>
+            Oui
+          <% else %>
+            Non
+          <% end %>
+        </td>
+        <td>
+          <% if actors_group.france == true %>
+            Oui
+          <% else %>
+            Non
+          <% end %>
+        </td>
+        <td>
+          <% if actors_group.swiss == true %>
+            Oui
+          <% else %>
+            Non
+          <% end %>
+        </td>
+        <td><%= actors_group.nuts %></td>
+        <td>
+          <% if actors_group.administration == true %>
+            Oui
+          <% else %>
+            Non
+          <% end %>
+        </td>
+        <td>
+          <% if actors_group.executive == true %>
+            Oui
+          <% else %>
+            Non
+          <% end %>
+        </td>
+        <td>
+          <% if actors_group.legislative == true %>
+            Oui
+          <% else %>
+            Non
+          <% end %>
+        </td>
+        <td>
+          <%= link_to 'Editer', edit_actors_group_path(actors_group) %>
+          <%= link_to 'Supprimer', actors_group, method: :delete, data: { confirm: 'Etes-vous sûr ? Attention : La suppression de cette catégorie d\'acteurs est irréversible et supprimera tous les acteurs associés.' } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

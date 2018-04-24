@@ -1,0 +1,67 @@
+<%= form_with(model: actors_group, local: true) do |form| %>
+  <% if actors_group.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(actors_group.errors.count, "erreur identifiée", "erreurs identifiées") %> : </h2>
+
+      <ul>
+      <% actors_group.errors.messages.values.each do |message| %>
+        <li><%= message[0] %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <hr/><h3>Informations sur la catégorie d'acteurs</h3><br/>
+
+  <div class="field">
+    Nom : <br/>
+    <em>Champ de type texte (maximum 50 caractères, espaces compris)</em><br/>
+    <%= form.text_field :name, size: '43.5' %>
+  </div>
+
+  <div class="field">
+    Mission : <br/>
+    <em>Champ de type texte (maximum 500 caractères, espaces compris)</em><br/>
+    <%= form.text_area :mission, size: '40x5' %>
+  </div>
+
+  <div class="field">
+    Public ? 
+    <%= form.check_box :category %>
+  </div>
+
+  <div class="field">
+    France ? 
+    <%= form.check_box :france %>
+  </div>
+
+  <div class="field">
+    Suisse ? 
+    <%= form.check_box :swiss %>
+  </div>
+
+  <div class="field">
+    Niveau NUTS : <br/>
+    <em>Champ de type entier (valeurs possibles : 1, 2, 3, 4 ou 5)</em><br/>
+    <%= form.number_field :nuts %>
+  </div>
+
+  <div class="field">
+    Administration ? 
+    <%= form.check_box :administration %>
+  </div>
+
+  <div class="field">
+    Exécutif ? 
+    <%= form.check_box :executive %>
+  </div>
+
+  <div class="field">
+    Législatif ? 
+    <%= form.check_box :legislative %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "Enregistrer" %>
+  </div>
+<% end %>

@@ -1,0 +1,73 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nom : </strong>
+  <%= @actors_group.name %>
+</p>
+
+<p>
+  <strong>Mission : </strong>
+  <%= @actors_group.mission %>
+</p>
+
+<p>
+  <strong>Public ? </strong>
+  <% if @actors_group.category == true %>
+    Oui
+  <% else %>
+    Non
+  <% end %>
+</p>
+
+<p>
+  <strong>France ? </strong>
+  <% if @actors_group.france == true %>
+    Oui
+  <% else %>
+    Non
+  <% end %>
+</p>
+
+<p>
+  <strong>Suisse ? </strong>
+  <% if @actors_group.swiss == true %>
+    Oui
+  <% else %>
+    Non
+  <% end %>
+</p>
+
+<p>
+  <strong>Niveau NUTS : </strong>
+  <%= @actors_group.nuts %>
+</p>
+
+<p>
+  <strong>Administration ? </strong>
+  <% if @actors_group.administration == true %>
+    Oui
+  <% else %>
+    Non
+  <% end %>
+</p>
+
+<p>
+  <strong>Exécutif ? </strong>
+  <% if @actors_group.executive == true %>
+    Oui
+  <% else %>
+    Non
+  <% end %>
+</p>
+
+<p>
+  <strong>Législatif ? </strong>
+  <% if @actors_group.legislative == true %>
+    Oui
+  <% else %>
+    Non
+  <% end %>
+</p>
+
+<%= link_to 'Editer', edit_actors_group_path(@actors_group) %> |
+<%= link_to 'Voir toutes les catégories d\'acteurs', actors_groups_path %>
