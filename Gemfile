@@ -33,6 +33,8 @@ gem 'jbuilder', '~> 2.5'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
+# jquery for Rails -> in order to use dropdown menu (navbar)
+gem 'jquery-rails'
 # Bootstrap
 gem 'rails-bootstrap'
 
