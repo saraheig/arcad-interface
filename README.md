@@ -1,24 +1,8 @@
-# README
+# Database interface for the ARC-AD project
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a Web application which allows users to easily create, read, update and delete (CRUD application) data.
 
-Things you may want to cover:
+The actual database of this project is composed by this table: 
 
-* Ruby version
+* ActorsGroup
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
