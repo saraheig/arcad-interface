@@ -22,8 +22,14 @@
             </ul>
           </li>
         </ul>
-        <ul class="nav navbar-nav navbar-right">
-          <li><%= link_to "Aller en haut de la page", :anchor => "#" %></li>
+        <ul class='nav navbar-nav navbar-right'>
+          <li><%= link_to 'Aller en haut de la page', :anchor => "#" %></li>
+          <% if logged_in? %>
+            <li><%= link_to "Se déconnecter (#{current_user.pseudo})", session_path, method: :delete %></li>
+          <% else %>
+            <li><%= link_to "Se connecter", new_session_path %></li>
+          <% end %>
+        </ul>
       </div>
     </nav>
     <main>

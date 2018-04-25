@@ -1,4 +1,4 @@
-class ActorsGroupsController < ApplicationController
+class ActorsGroupsController < AuthenticateController
   before_action :set_actors_group, only: [:show, :edit, :update, :destroy]
 
   # GET /actors_groups

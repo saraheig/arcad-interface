@@ -1,2 +1,2 @@
-class TablesController < ApplicationController
+class TablesController < AuthenticateController
 end
