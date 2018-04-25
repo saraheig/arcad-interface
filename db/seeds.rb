@@ -7,6 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 ActorsGroup.delete_all
+User.delete_all
 
 confederation = ActorsGroup.create!(
   name: 'Confédération',
@@ -183,3 +184,10 @@ propTerrain = ActorsGroup.create!(
   administration: false,
   executive: false,
   legislative: false)
+
+case Rails.env
+when "development"
+  User.create!(
+    pseudo: 'tototutu',
+    password: 'tototutu')
+end
