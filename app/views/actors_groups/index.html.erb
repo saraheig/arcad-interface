@@ -21,7 +21,7 @@
       <th>Administration ?</th>
       <th>Exécutif ?</th>
       <th>Législatif ?</th>
-      <th></th>
+      <th colspan="2"></th>
     </tr>
   </thead>
 
@@ -73,10 +73,8 @@
             Non
           <% end %>
         </td>
-        <td>
-          <%= link_to 'Editer', edit_actors_group_path(actors_group) %>
-          <%= link_to 'Supprimer', actors_group, method: :delete, data: { confirm: 'Etes-vous sûr ? Attention : La suppression de cette catégorie d\'acteurs est irréversible et supprimera tous les acteurs associés.' } %>
-        </td>
+        <td><%= link_to 'Editer', edit_actors_group_path(actors_group) %></td>
+        <td><%= link_to 'Supprimer', actors_group, method: :delete, data: { confirm: 'Etes-vous sûr ? Attention : La suppression de cette catégorie d\'acteurs est irréversible et supprimera tous les acteurs associés.' } %></td>
       </tr>
     <% end %>
   </tbody>
