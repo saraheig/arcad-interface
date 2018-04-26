@@ -17,52 +17,52 @@
     Nom de l'instrument* : <br/>
     <em>Champ de type texte (maximum 250 caractères, espaces compris)</em><br/>
     <%= form.text_field :name, size: '43.5' %>
-  </div>
+  </div><br/>
 
   <div class="field">
     Abréviation de l'instrument : <br/>
     <em>Champ de type texte (maximum 10 caractères, espaces compris)</em><br/>
     <%= form.text_field :abbreviation, size: '10' %>
-  </div>
+  </div><br/>
 
   <div class="field">
     Date d'entrée en vigueur de l'instrument : <br/>
     <%= form.date_select :start_date %>
-  </div>
+  </div><br/>
 
   <div class="field">
     Date de dernière révision de l'instrument : <br/>
     <%= form.date_select :last_rev_date %>
-  </div>
+  </div><br/>
 
   <div class="field">
     Description de l'instrument : <br/>
     <em>Champ de type texte (maximum 500 caractères, espaces compris)</em><br/>
     <%= form.text_area :description, size: '40x5' %>
-  </div>
+  </div><br/>
 
   <div class="field">
     Contenu "Aménagement du territoire" : <br/>
     <em>Champ de type texte (nombre illimité de caractères)</em><br/>
     <%= form.text_area :planning, size: '40x5' %>
-  </div>
+  </div><br/>
 
   <div class="field">
     Contenu "Transfrontalier" : <br/>
     <em>Champ de type texte (nombre illimité de caractères)</em><br/>
     <%= form.text_area :transboundary, size: '40x5' %>
-  </div>
+  </div><br/>
 
   <div class="field">
     Procédure de recours ? 
     <%= form.check_box :appeal_proc %>
-  </div>
+  </div><br/>
 
   <div class="field">
     Description de la procédure de recours : <br/>
     <em>Champ de type texte (nombre illimité de caractères)</em><br/>
     <%= form.text_area :descr_appeal_proc, size: '40x5' %>
-  </div>
+  </div><br/>
 
   <hr/><h3>Classification de l'instrument</h3><br/>
 
@@ -71,7 +71,7 @@
     <em>Champ obligatoire (l'instrument territorial doit appartenir à une des catégories d'instruments)</em><br/>
     <%= form.select :instruments_group_id, InstrumentsGroup.all.collect { |group| ["Nom suisse -> " + group.name_ch + " ; Nom français -> " + group.name_fr, group.id] }, { :include_blank => "Choisir" } %>
     <%= link_to "Créer une nouvelle catégorie d'instruments", new_instruments_group_path %>
-  </div>
+  </div><br/>
 
   <hr/>
   <h6>* Champs obligatoires</h6>

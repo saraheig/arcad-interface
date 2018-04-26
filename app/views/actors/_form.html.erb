@@ -17,31 +17,31 @@
     Nom de l'acteur* : <br/>
     <em>Champ de type texte (maximum 250 caractères, espaces compris)</em><br/>
     <%= form.text_field :name, size: '43.5' %>
-  </div>
+  </div><br/>
 
   <div class="field">
     Abréviation de l'acteur : <br/>
     <em>Champ de type texte (maximum 20 caractères, espaces compris)</em><br/>
     <%= form.text_field :abbreviation, size: '10' %>
-  </div>
+  </div><br/>
 
   <div class="field">
     Pays de l'acteur : <br/>
     <em>Champ de type texte (maximum 20 caractères, espaces compris)</em><br/>
     <%= form.text_field :country, size: '10' %>
-  </div>
+  </div><br/>
 
   <div class="field">
     Téléphone de l'acteur : <br/>
     <em>Champ de type texte (maximum 20 caractères, espaces compris)</em><br/>
     <%= form.text_field :phone, size: '10' %>
-  </div>
+  </div><br/>
 
   <div class="field">
     Site Web de l'acteur : <br/>
     <em>Champ de type texte (nombre illimité de caractères)</em><br/>
     <%= form.text_field :link, size: '43.5' %>
-  </div>
+  </div><br/>
 
   <hr/><h3>Classification de l'acteur</h3><br/>
 
@@ -50,7 +50,7 @@
     <em>Champ obligatoire (l'acteur doit appartenir à une des catégories d'acteurs)</em><br/>
     <%= form.select :actors_group_id, ActorsGroup.all.collect { |group| [group.name, group.id] }, { :include_blank => "Choisir" } %>
     <%= link_to "Créer une nouvelle catégorie d'acteurs", new_actors_group_path %>
-  </div>
+  </div><br/>
 
   <hr/>
   <h6>* Champs obligatoires</h6>

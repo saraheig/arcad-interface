@@ -47,7 +47,15 @@
 
 <p>
   <strong>Catégorie d'instruments : </strong>
-  Nom suisse -> <%= @instrument.instruments_group.name_ch %> ; Nom français -> <%= @instrument.instruments_group.name_fr %>
+  <% if @instrument.instruments_group.name_ch != "" %>
+    <%= @instrument.instruments_group.name_ch %> (ch) 
+  <% end %>
+  <% if @instrument.instruments_group.name_ch != "" and @instrument.instruments_group.name_fr != "" %>
+    /
+  <% end %>
+  <% if @instrument.instruments_group.name_fr != "" %>
+    <%= @instrument.instruments_group.name_fr %> (fr)
+  <% end %>
 </p>
 
 <%= link_to 'Editer', edit_instrument_path(@instrument) %> |
