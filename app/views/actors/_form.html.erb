@@ -43,8 +43,10 @@
     <%= form.text_field :link, size: '43.5' %>
   </div>
 
+  <hr/><h3>Classification de l'acteur</h3><br/>
+
   <div class="field">
-    Catégorie de l'acteur* : <br/>
+    Catégorie d'acteurs* : <br/>
     <em>Champ obligatoire (l'acteur doit appartenir à une des catégories d'acteurs)</em><br/>
     <%= form.select :actors_group_id, ActorsGroup.all.collect { |group| [group.name, group.id] }, { :include_blank => "Choisir" } %>
     <%= link_to "Créer une nouvelle catégorie d'acteurs", new_actors_group_path %>
