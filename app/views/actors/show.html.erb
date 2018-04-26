@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nom de l'acteur : </strong>
+  <%= @actor.name %>
+</p>
+
+<p>
+  <strong>Abréviation de l'acteur : </strong>
+  <%= @actor.abbreviation %>
+</p>
+
+<p>
+  <strong>Pays de l'acteur : </strong>
+  <%= @actor.country %>
+</p>
+
+<p>
+  <strong>Téléphone de l'acteur : </strong>
+  <%= @actor.phone %>
+</p>
+
+<p>
+  <strong>Site Web de l'acteur : </strong>
+  <%= @actor.link %>
+</p>
+
+<p>
+  <strong>Catégorie de l'acteur : </strong>
+  <%= @actor.actors_group.name %>
+</p>
+
+<%= link_to 'Editer', edit_actor_path(@actor) %> |
+<%= link_to 'Voir tous les acteurs', actors_path %>

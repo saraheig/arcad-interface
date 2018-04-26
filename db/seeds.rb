@@ -6,6 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+Actor.delete_all
 ActorsGroup.delete_all
 User.delete_all
 
@@ -86,94 +87,6 @@ admCommunale = ActorsGroup.create!(
   executive: false,
   legislative: false)
 
-conseilFederal = ActorsGroup.create!(
-  name: 'Conseil fédéral',
-  mission: '',
-  category: true,
-  france: true,
-  swiss: true,
-  nuts: 4,
-  administration: false,
-  executive: true,
-  legislative: false)
-
-conseilEtat = ActorsGroup.create!(
-  name: 'Conseil d\'Etat',
-  mission: '',
-  category: true,
-  france: false,
-  swiss: true,
-  nuts: 3,
-  administration: false,
-  executive: true,
-  legislative: false)
-
-conseilCommNE = ActorsGroup.create!(
-  name: 'Conseil communal (NE)',
-  mission: '',
-  category: true,
-  france: true,
-  swiss: true,
-  nuts: 1,
-  administration: false,
-  executive: true,
-  legislative: false)
-
-assembleeFederale = ActorsGroup.create!(
-  name: 'Assemblée fédérale',
-  mission: '',
-  category: true,
-  france: true,
-  swiss: true,
-  nuts: 4,
-  administration: false,
-  executive: false,
-  legislative: true)
-
-conseilNational = ActorsGroup.create!(
-  name: 'Conseil national',
-  mission: '',
-  category: true,
-  france: false,
-  swiss: true,
-  nuts: 4,
-  administration: false,
-  executive: false,
-  legislative: true)
-
-conseilEtats = ActorsGroup.create!(
-  name: 'Conseil des Etats',
-  mission: '',
-  category: true,
-  france: false,
-  swiss: true,
-  nuts: 4,
-  administration: false,
-  executive: false,
-  legislative: true)
-
-grandConseil = ActorsGroup.create!(
-  name: 'Grand Conseil',
-  mission: '',
-  category: true,
-  france: false,
-  swiss: true,
-  nuts: 3,
-  administration: false,
-  executive: false,
-  legislative: true)
-
-conseilGeneralNE = ActorsGroup.create!(
-  name: 'Conseil général (NE)',
-  mission: '',
-  category: true,
-  france: true,
-  swiss: true,
-  nuts: 1,
-  administration: false,
-  executive: false,
-  legislative: true)
-
 propTerrain = ActorsGroup.create!(
   name: 'Propriétaire de terrain',
   mission: '',
@@ -184,6 +97,50 @@ propTerrain = ActorsGroup.create!(
   administration: false,
   executive: false,
   legislative: false)
+
+Actor.create!([{
+  name: 'Département du développement territorial et de l\'environnement de Neuchâtel',
+  abbreviation: 'DDTE',
+  country: 'Suisse',
+  phone: '',
+  link: 'http://www.ne.ch/autorites/DDTE/Pages/accueil.aspx',
+  actors_group: admCantonale
+},{
+  name: 'Service de l\'aménagement du territoire de Neuchâtel',
+  abbreviation: 'SAT',
+  country: 'Suisse',
+  phone: '',
+  link: 'http://www.ne.ch/autorites/DDTE/SCAT/Pages/accueil.aspx',
+  actors_group: admCantonale
+},{
+  name: 'Dicastère de l\'urbanisme, des bâtiments et des relations extérieures',
+  abbreviation: 'DUBRE',
+  country: 'Suisse',
+  phone: '',
+  link: '',
+  actors_group: admCommunale
+},{
+  name: 'Service d\'urbanisme et de l\'environnement',
+  abbreviation: '',
+  country: 'Suisse',
+  phone: '',
+  link: '',
+  actors_group: admCommunale
+},{
+  name: 'Office du développement territorial',
+  abbreviation: 'ARE',
+  country: 'Suisse',
+  phone: '',
+  link: '',
+  actors_group: admFederale
+},{
+  name: 'STEP de la ville de la Chaux-de-Fonds',
+  abbreviation: '',
+  country: 'Suisse',
+  phone: '',
+  link: '',
+  actors_group: admCommunale
+}])
 
 case Rails.env
 when "development"

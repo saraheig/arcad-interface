@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Acteurs</h1>
+<em>
+  Cette table contient l'ensemble des acteurs.
+</em>
+
+<hr/>
+<%= link_to 'Ajouter un nouvel acteur', new_actor_path %>
+<hr/>
+
+<table class="table table-striped table-bordered table-hover">
+  <thead>
+    <tr>
+      <th>Nom de l'acteur</th>
+      <th>Abréviation de l'acteur</th>
+      <th>Pays de l'acteur</th>
+      <th>Téléphone de l'acteur</th>
+      <th>Site Web de l'acteur</th>
+      <th>Catégorie de l'acteur</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @actors.each do |actor| %>
+      <tr>
+        <td><%= actor.name %></td>
+        <td><%= actor.abbreviation %></td>
+        <td><%= actor.country %></td>
+        <td><%= actor.phone %></td>
+        <td><%= actor.link %></td>
+        <td><%= actor.actors_group.name %></td>
+        <td><%= link_to 'Editer', edit_actor_path(actor) %></td>
+        <td><%= link_to 'Supprimer', actor, method: :delete, data: { confirm: 'Etes-vous sûr ? Attention : La suppression de cet acteur est irréversible.' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

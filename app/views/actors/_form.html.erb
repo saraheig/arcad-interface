@@ -1,0 +1,58 @@
+<%= form_with(model: actor, local: true) do |form| %>
+  <% if actor.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(actor.errors.count, "erreur identifiée", "erreurs identifiées") %> : </h2>
+
+      <ul>
+      <% actor.errors.messages.values.each do |message| %>
+        <li><%= message[0] %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <hr/><h3>Informations sur l'acteur</h3><br/>
+
+  <div class="field">
+    Nom de l'acteur* : <br/>
+    <em>Champ de type texte (maximum 250 caractères, espaces compris)</em><br/>
+    <%= form.text_field :name, size: '43.5' %>
+  </div>
+
+  <div class="field">
+    Abréviation de l'acteur : <br/>
+    <em>Champ de type texte (maximum 20 caractères, espaces compris)</em><br/>
+    <%= form.text_field :abbreviation, size: '10' %>
+  </div>
+
+  <div class="field">
+    Pays de l'acteur : <br/>
+    <em>Champ de type texte (maximum 20 caractères, espaces compris)</em><br/>
+    <%= form.text_field :country, size: '10' %>
+  </div>
+
+  <div class="field">
+    Téléphone de l'acteur : <br/>
+    <em>Champ de type texte (maximum 20 caractères, espaces compris)</em><br/>
+    <%= form.text_field :phone, size: '10' %>
+  </div>
+
+  <div class="field">
+    Site Web de l'acteur : <br/>
+    <em>Champ de type texte (nombre illimité de caractères)</em><br/>
+    <%= form.text_field :link, size: '43.5' %>
+  </div>
+
+  <div class="field">
+    Catégorie de l'acteur* : <br/>
+    <em>Champ obligatoire (l'acteur doit appartenir à une des catégories d'acteurs)</em><br/>
+    <%= form.select :actors_group_id, ActorsGroup.all.collect { |group| [group.name, group.id] }, { :include_blank => "Choisir" } %>
+    <%= link_to "Créer une nouvelle catégorie d'acteurs", new_actors_group_path %>
+  </div>
+
+  <hr/>
+  <h6>* Champs obligatoires</h6>
+  <div class="actions">
+    <%= form.submit "Enregistrer" %>
+  </div>
+<% end %>
