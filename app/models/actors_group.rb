@@ -9,5 +9,6 @@ class ActorsGroup < ApplicationRecord
 
   def strip_blanks
     self.name = self.name.strip
+    self.mission = self.mission.strip
   end
 end

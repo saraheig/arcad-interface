@@ -13,5 +13,9 @@ class Actor < ApplicationRecord
 
   def strip_blanks
     self.name = self.name.strip
+    self.abbreviation = self.abbreviation.strip
+    self.country = self.country.strip
+    self.phone = self.phone.strip
+    self.link = self.link.strip
   end
 end
