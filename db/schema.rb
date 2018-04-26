@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_04_26_125730) do
+ActiveRecord::Schema.define(version: 2018_04_26_145317) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,6 +43,23 @@ ActiveRecord::Schema.define(version: 2018_04_26_125730) do
     t.index ["name"], name: "index_actors_groups_on_name", unique: true
   end
 
+  create_table "instruments", force: :cascade do |t|
+    t.string "name", limit: 250
+    t.string "abbreviation", limit: 10
+    t.date "start_date"
+    t.date "last_rev_date"
+    t.string "description", limit: 500
+    t.string "planning"
+    t.string "transboundary"
+    t.boolean "appeal_proc"
+    t.string "descr_appeal_proc"
+    t.bigint "instruments_group_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["instruments_group_id"], name: "index_instruments_on_instruments_group_id"
+    t.index ["name"], name: "index_instruments_on_name", unique: true
+  end
+
   create_table "instruments_groups", force: :cascade do |t|
     t.string "name_ch", limit: 50
     t.string "name_fr", limit: 50
@@ -68,4 +85,5 @@ ActiveRecord::Schema.define(version: 2018_04_26_125730) do
   end
 
   add_foreign_key "actors", "actors_groups"
+  add_foreign_key "instruments", "instruments_groups"
 end

@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  abbreviation: MyString
+  start_date: 2018-04-26
+  last_rev_date: 2018-04-26
+  description: MyString
+  planning: MyString
+  transboundary: MyString
+  appeal_proc: false
+  descr_appeal_proc: MyString
+  instruments_group: one
+
+two:
+  name: MyString
+  abbreviation: MyString
+  start_date: 2018-04-26
+  last_rev_date: 2018-04-26
+  description: MyString
+  planning: MyString
+  transboundary: MyString
+  appeal_proc: false
+  descr_appeal_proc: MyString
+  instruments_group: two

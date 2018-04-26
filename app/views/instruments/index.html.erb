@@ -1,0 +1,56 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Instruments territoriaux</h1>
+<em>
+  Cette table contient l'ensemble des instruments territoriaux.
+</em>
+
+<hr/>
+<%= link_to 'Ajouter un nouvel instrument territorial', new_instrument_path %>
+<hr/>
+
+<table class="table table-striped table-bordered table-hover">
+  <thead>
+    <tr>
+      <th>Nom de l'instrument</th>
+      <th>Abréviation de l'instrument</th>
+      <th>Date d'entrée en vigueur de l'instrument</th>
+      <th>Date de dernière révision de l'instrument</th>
+      <th>Description de l'instrument</th>
+      <th>Contenu "Aménagement du territoire"</th>
+      <th>Contenu "Transfrontalier"</th>
+      <th>Procédure de recours ?</th>
+      <th>Description de la procédure de recours</th>
+      <th>Catégorie d'instruments</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @instruments.each do |instrument| %>
+      <tr>
+        <td><%= instrument.name %></td>
+        <td><%= instrument.abbreviation %></td>
+        <td><%= instrument.start_date %></td>
+        <td><%= instrument.last_rev_date %></td>
+        <td><%= instrument.description %></td>
+        <td><%= instrument.planning %></td>
+        <td><%= instrument.transboundary %></td>
+        <td>
+          <% if instrument.appeal_proc == true %>
+            Oui
+          <% else %>
+            Non
+          <% end %>
+        </td>
+        <td><%= instrument.descr_appeal_proc %></td>
+        <td>
+          Nom suisse -> <%= instrument.instruments_group.name_ch %><br/>
+          Nom français -> <%= instrument.instruments_group.name_fr %>
+        </td>
+        <td><%= link_to 'Editer', edit_instrument_path(instrument) %></td>
+        <td><%= link_to 'Supprimer', instrument, method: :delete, data: { confirm: 'Etes-vous sûr ? Attention : La suppression de cet instrument territorial est irréversible.' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nom de l'instrument : </strong>
+  <%= @instrument.name %>
+</p>
+
+<p>
+  <strong>Abréviation de l'instrument : </strong>
+  <%= @instrument.abbreviation %>
+</p>
+
+<p>
+  <strong>Date d'entrée en vigueur de l'instrument : </strong>
+  <%= @instrument.start_date %>
+</p>
+
+<p>
+  <strong>Date de dernière révision de l'instrument : </strong>
+  <%= @instrument.last_rev_date %>
+</p>
+
+<p>
+  <strong>Description de l'instrument : </strong>
+  <%= @instrument.description %>
+</p>
+
+<p>
+  <strong>Contenu "Aménagement du territoire" : </strong>
+  <%= @instrument.planning %>
+</p>
+
+<p>
+  <strong>Contenu "Transfrontalier" : </strong>
+  <%= @instrument.transboundary %>
+</p>
+
+<p>
+  <strong>Procédure de recours ? </strong>
+  <%= @instrument.appeal_proc %>
+</p>
+
+<p>
+  <strong>Description de la procédure de recours : </strong>
+  <%= @instrument.descr_appeal_proc %>
+</p>
+
+<p>
+  <strong>Catégorie d'instruments : </strong>
+  Nom suisse -> <%= @instrument.instruments_group.name_ch %> ; Nom français -> <%= @instrument.instruments_group.name_fr %>
+</p>
+
+<%= link_to 'Editer', edit_instrument_path(@instrument) %> |
+<%= link_to 'Voir tous les instruments territoriaux', instruments_path %>

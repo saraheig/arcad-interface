@@ -8,6 +8,7 @@
 
 Actor.delete_all
 ActorsGroup.delete_all
+Instrument.delete_all
 InstrumentsGroup.delete_all
 User.delete_all
 
@@ -166,6 +167,42 @@ loiFederale = InstrumentsGroup.create!(
   plan: false,
   appeal_proc: false,
   descr_appeal_proc: '')
+
+Instrument.create!([{
+  name: 'Plan directeur cantonal Neuchâtelois - 2ème version',
+  abbreviation: 'PDCn 2011',
+  start_date: '22.06.2011',
+  last_rev_date: '',
+  description: '',
+  planning: 'Instrument de mise en œuvre de l\'exécutif, le PDCn fixe les conditions de mise en œuvre opérationnelle de la conception directrice. Divisé en 3 volets : 
+    Volet stratégique - projet territoire - reprend les 5 priorités de la conception et propose 2  ou 3 lignes d\'action pour chacune d\'entre elles ; 
+    Volet opérationnel - fiche coordination ; 
+    Volet opérationnel - carte synthèse',
+  transboundary: 'Priorités politiques : 
+    R- Relations extérieures: rayonner ;
+    R.1 Améliorer la position du canton : coopération régionales, fiches R_11, R_12, R_13 ;
+    R.2. Valoriser les domaines d\'excellence indsutrielle: fiche E_11 ;
+    E - Economie: Inciter ;
+    E.1 Soutenir un développement économique durable, fiches E_11, E_12, E_13 ;
+    A - Accessibilité - relier ;
+    A.2 - Viser un report modal fort vers les TP et les MD, fiches A_21 à A_27 ;
+    A.3 - Réorganiser le réseau routier, fiches R_31 et R_32',
+  appeal_proc: false,
+  descr_appeal_proc: '',
+  instruments_group: planDirCant
+},{
+  name: 'Loi fédérale sur l\'aménagement du territoire',
+  abbreviation: 'LAT',
+  start_date: '01.01.1980',
+  last_rev_date: '01.05.2014',
+  description: '',
+  planning: 'Législation fédérale sur l\'aménagement du territoire : Loi limitée aux principes et aux outils.
+    Avec la révision de 2014 (art.15 et 15a), les cantons sont obligés de revoir leur PDCn, obligeant ainsi les communes à revoir leur plan d\'affectation.',
+  transboundary: 'Art.7 Al. 3 : "Les cantons contigus à la frontière nationale s’emploient à collaborer avec les autorités des régions limitrophes des pays voisins lorsque les mesures qu’ils prennent peuvent avoir des effets au-delà de la frontière."',
+  appeal_proc: false,
+  descr_appeal_proc: '',
+  instruments_group: loiFederale
+}])
 
 case Rails.env
 when "development"

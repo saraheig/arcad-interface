@@ -1,0 +1,79 @@
+<%= form_with(model: instrument, local: true) do |form| %>
+  <% if instrument.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(instrument.errors.count, "erreur identifiée", "erreurs identifiées") %> : </h2>
+
+      <ul>
+      <% instrument.errors.messages.values.each do |message| %>
+        <li><%= message[0] %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <hr/><h3>Informations sur l'instrument territorial</h3><br/>
+
+  <div class="field">
+    Nom de l'instrument* : <br/>
+    <em>Champ de type texte (maximum 250 caractères, espaces compris)</em><br/>
+    <%= form.text_field :name, size: '43.5' %>
+  </div>
+
+  <div class="field">
+    Abréviation de l'instrument : <br/>
+    <em>Champ de type texte (maximum 10 caractères, espaces compris)</em><br/>
+    <%= form.text_field :abbreviation, size: '10' %>
+  </div>
+
+  <div class="field">
+    Date d'entrée en vigueur de l'instrument : <br/>
+    <%= form.date_select :start_date %>
+  </div>
+
+  <div class="field">
+    Date de dernière révision de l'instrument : <br/>
+    <%= form.date_select :last_rev_date %>
+  </div>
+
+  <div class="field">
+    Description de l'instrument : <br/>
+    <em>Champ de type texte (maximum 500 caractères, espaces compris)</em><br/>
+    <%= form.text_area :description, size: '40x5' %>
+  </div>
+
+  <div class="field">
+    Contenu "Aménagement du territoire" : <br/>
+    <em>Champ de type texte (nombre illimité de caractères)</em><br/>
+    <%= form.text_area :planning, size: '40x5' %>
+  </div>
+
+  <div class="field">
+    Contenu "Transfrontalier" : <br/>
+    <em>Champ de type texte (nombre illimité de caractères)</em><br/>
+    <%= form.text_area :transboundary, size: '40x5' %>
+  </div>
+
+  <div class="field">
+    Procédure de recours ? 
+    <%= form.check_box :appeal_proc %>
+  </div>
+
+  <div class="field">
+    Description de la procédure de recours : <br/>
+    <em>Champ de type texte (nombre illimité de caractères)</em><br/>
+    <%= form.text_area :descr_appeal_proc, size: '40x5' %>
+  </div>
+
+  <div class="field">
+    Catégorie d'instruments* : <br/>
+    <em>Champ obligatoire (l'instrument territorial doit appartenir à une des catégories d'instruments)</em><br/>
+    <%= form.select :instruments_group_id, InstrumentsGroup.all.collect { |group| ["Nom suisse -> " + group.name_ch + " ; Nom français -> " + group.name_fr, group.id] }, { :include_blank => "Choisir" } %>
+    <%= link_to "Créer une nouvelle catégorie d'instruments", new_instruments_group_path %>
+  </div>
+
+  <hr/>
+  <h6>* Champs obligatoires</h6>
+  <div class="actions">
+    <%= form.submit "Enregistrer" %>
+  </div>
+<% end %>
