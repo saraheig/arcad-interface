@@ -1,0 +1,77 @@
+<%= form_with(model: instruments_group, local: true) do |form| %>
+  <% if instruments_group.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(instruments_group.errors.count, "erreur identifiée", "erreurs identifiées") %> : </h2>
+
+      <ul>
+      <% instruments_group.errors.messages.values.each do |message| %>
+        <li><%= message[0] %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <hr/><h3>Informations sur la catégorie d'instruments</h3><br/>
+
+  <div class="field">
+    Nom suisse de la catégorie d'instruments : <br/>
+    <em>Champ de type texte (maximum 50 caractères, espaces compris)</em><br/>
+    <%= form.text_field :name_ch, size: '43.5' %>
+  </div>
+
+  <div class="field">
+    Nom français de la catégorie d'instruments : <br/>
+    <em>Champ de type texte (maximum 50 caractères, espaces compris)</em><br/>
+    <%= form.text_field :name_fr, size: '43.5' %>
+  </div>
+
+  <div class="field">
+    Abréviation suisse de la catégorie d'instruments : <br/>
+    <em>Champ de type texte (maximum 10 caractères, espaces compris)</em><br/>
+    <%= form.text_field :abbrev_ch, size: '10' %>
+  </div>
+
+  <div class="field">
+    Abréviation française de la catégorie d'instruments : <br/>
+    <em>Champ de type texte (maximum 10 caractères, espaces compris)</em><br/>
+    <%= form.text_field :abbrev_fr, size: '10' %>
+  </div>
+
+  <div class="field">
+    Description de la catégorie d'instruments : <br/>
+    <em>Champ de type texte (maximum 500 caractères, espaces compris)</em><br/>
+    <%= form.text_area :description, size: '40x5' %>
+  </div>
+
+  <div class="field">
+    Pays de la catégorie d'instruments : <br/>
+    <em>Champ de type texte (maximum 20 caractères, espaces compris)</em><br/>
+    <%= form.text_field :country, size: '10' %>
+  </div>
+
+  <div class="field">
+    Droit public ? 
+    <%= form.check_box :law %>
+  </div>
+
+  <div class="field">
+    Plan ? 
+    <%= form.check_box :plan %>
+  </div>
+
+  <div class="field">
+    Procédure de recours ? 
+    <%= form.check_box :appeal_proc %>
+  </div>
+
+  <div class="field">
+    Description de la procédure de recours : <br/>
+    <em>Champ de type texte (nombre illimité de caractères)</em><br/>
+    <%= form.text_area :descr_appeal_proc, size: '40x5' %>
+  </div>
+
+  <hr/>
+  <div class="actions">
+    <%= form.submit "Enregistrer" %>
+  </div>
+<% end %>

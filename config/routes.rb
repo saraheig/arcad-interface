@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :actors
   root to: redirect('/tables')
 
   resource :session, only: %i[new create destroy]
@@ -7,6 +6,7 @@ Rails.application.routes.draw do
 
   resources :actors_groups, path: "/tables/actorsGroups"
   resources :actors, path: "/tables/actors"
+  resources :instruments_groups, path: "/tables/instrumentsGroups"
 
   # Default route (if unknown url)
   match "*path" => redirect("/tables"), via: [:get, :post]

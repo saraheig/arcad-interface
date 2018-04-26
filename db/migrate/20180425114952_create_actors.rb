@@ -11,6 +11,6 @@ class CreateActors < ActiveRecord::Migration[5.2]
       t.timestamps
     end
 
-    add_index :actors, :name
+    add_index :actors, :name, :unique => true
   end
 end

@@ -1,0 +1,65 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Catégories d'instruments</h1>
+<em>
+  Cette table contient l'ensemble des catégories d'instruments.
+</em>
+
+<hr/>
+<%= link_to 'Ajouter une nouvelle catégorie d\'instruments', new_instruments_group_path %>
+<hr/>
+
+<table class="table table-striped table-bordered table-hover">
+  <thead>
+    <tr>
+      <th>Nom suisse de la catégorie d'instruments</th>
+      <th>Nom français de la catégorie d'instruments</th>
+      <th>Abréviation suisse de la catégorie d'instruments</th>
+      <th>Abréviation française de la catégorie d'instruments</th>
+      <th>Description de la catégorie d'instruments</th>
+      <th>Pays de la catégorie d'instruments</th>
+      <th>Droit public ?</th>
+      <th>Plan ?</th>
+      <th>Procédure de recours ?</th>
+      <th>Description de la procédure de recours</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @instruments_groups.each do |instruments_group| %>
+      <tr>
+        <td><%= instruments_group.name_ch %></td>
+        <td><%= instruments_group.name_fr %></td>
+        <td><%= instruments_group.abbrev_ch %></td>
+        <td><%= instruments_group.abbrev_fr %></td>
+        <td><%= instruments_group.description %></td>
+        <td><%= instruments_group.country %></td>
+        <td>
+          <% if instruments_group.law == true %>
+            Oui
+          <% else %>
+            Non
+          <% end %>
+        </td>
+        <td>
+          <% if instruments_group.plan == true %>
+            Oui
+          <% else %>
+            Non
+          <% end %>
+        </td>
+        <td>
+          <% if instruments_group.appeal_proc == true %>
+            Oui
+          <% else %>
+            Non
+          <% end %>
+        </td>
+        <td><%= instruments_group.descr_appeal_proc %></td>
+        <td><%= link_to 'Editer', edit_instruments_group_path(instruments_group) %></td>
+        <td><%= link_to 'Supprimer', instruments_group, method: :delete, data: { confirm: 'Etes-vous sûr ? Attention : La suppression de cette catégorie d\'instruments est irréversible et supprimera tous les instruments associés.' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

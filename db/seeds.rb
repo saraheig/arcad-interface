@@ -8,6 +8,7 @@
 
 Actor.delete_all
 ActorsGroup.delete_all
+InstrumentsGroup.delete_all
 User.delete_all
 
 confederation = ActorsGroup.create!(
@@ -141,6 +142,30 @@ Actor.create!([{
   link: '',
   actors_group: admCommunale
 }])
+
+planDirCant = InstrumentsGroup.create!(
+  name_ch: 'Plan Directeur Cantonal',
+  name_fr: '',
+  abbrev_ch: 'PDCN',
+  abbrev_fr: '',
+  description: '',
+  country: 'Suisse',
+  law: true,
+  plan: true,
+  appeal_proc: false,
+  descr_appeal_proc: '')
+
+loiFederale = InstrumentsGroup.create!(
+  name_ch: 'Loi fédérale',
+  name_fr: '',
+  abbrev_ch: '',
+  abbrev_fr: '',
+  description: '',
+  country: 'Suisse',
+  law: true,
+  plan: false,
+  appeal_proc: false,
+  descr_appeal_proc: '')
 
 case Rails.env
 when "development"

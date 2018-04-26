@@ -1,0 +1,66 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nom suisse de la catégorie d'instruments : </strong>
+  <%= @instruments_group.name_ch %>
+</p>
+
+<p>
+  <strong>Nom français de la catégorie d'instruments : </strong>
+  <%= @instruments_group.name_fr %>
+</p>
+
+<p>
+  <strong>Abréviation suisse de la catégorie d'instruments : </strong>
+  <%= @instruments_group.abbrev_ch %>
+</p>
+
+<p>
+  <strong>Abréviation française de la catégorie d'instruments : </strong>
+  <%= @instruments_group.abbrev_fr %>
+</p>
+
+<p>
+  <strong>Description de la catégorie d'instruments : </strong>
+  <%= @instruments_group.description %>
+</p>
+
+<p>
+  <strong>Pays de la catégorie d'instruments : </strong>
+  <%= @instruments_group.country %>
+</p>
+
+<p>
+  <strong>Droit public ? </strong>
+  <% if @instruments_group.law == true %>
+    Oui
+  <% else %>
+    Non
+  <% end %>
+</p>
+
+<p>
+  <strong>Plan ? </strong>
+  <% if @instruments_group.plan == true %>
+    Oui
+  <% else %>
+    Non
+  <% end %>
+</p>
+
+<p>
+  <strong>Procédure de recours ? </strong>
+  <% if @instruments_group.appeal_proc == true %>
+    Oui
+  <% else %>
+    Non
+  <% end %>
+</p>
+
+<p>
+  <strong>Description de la procédure de recours: </strong>
+  <%= @instruments_group.descr_appeal_proc %>
+</p>
+
+<%= link_to 'Editer', edit_instruments_group_path(@instruments_group) %> |
+<%= link_to 'Voir toutes les catégories d\'instruments', instruments_groups_path %>

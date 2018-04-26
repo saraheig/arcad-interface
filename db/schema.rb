@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_04_25_114952) do
+ActiveRecord::Schema.define(version: 2018_04_26_125730) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 2018_04_25_114952) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["actors_group_id"], name: "index_actors_on_actors_group_id"
-    t.index ["name"], name: "index_actors_on_name"
+    t.index ["name"], name: "index_actors_on_name", unique: true
   end
 
   create_table "actors_groups", force: :cascade do |t|
@@ -40,7 +40,23 @@ ActiveRecord::Schema.define(version: 2018_04_25_114952) do
     t.boolean "legislative"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["name"], name: "index_actors_groups_on_name"
+    t.index ["name"], name: "index_actors_groups_on_name", unique: true
+  end
+
+  create_table "instruments_groups", force: :cascade do |t|
+    t.string "name_ch", limit: 50
+    t.string "name_fr", limit: 50
+    t.string "abbrev_ch", limit: 10
+    t.string "abbrev_fr", limit: 10
+    t.string "description", limit: 500
+    t.string "country", limit: 20
+    t.boolean "law"
+    t.boolean "plan"
+    t.boolean "appeal_proc"
+    t.string "descr_appeal_proc"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name_ch", "name_fr"], name: "index_instruments_groups_on_name_ch_and_name_fr", unique: true
   end
 
   create_table "users", force: :cascade do |t|
