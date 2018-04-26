@@ -12,12 +12,16 @@
 
 <p>
   <strong>Date d'entrée en vigueur de l'instrument : </strong>
-  <%= @instrument.start_date %>
+  <% if @instrument.start_date != nil %>
+    <%= @instrument.start_date.strftime("%d.%m.%Y") %>
+  <% end %>
 </p>
 
 <p>
   <strong>Date de dernière révision de l'instrument : </strong>
-  <%= @instrument.last_rev_date %>
+  <% if @instrument.last_rev_date != nil %>
+    <%= @instrument.last_rev_date.strftime("%d.%m.%Y") %>
+  <% end %>
 </p>
 
 <p>

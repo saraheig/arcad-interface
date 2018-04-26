@@ -31,8 +31,16 @@
       <tr>
         <td><%= instrument.name %></td>
         <td><%= instrument.abbreviation %></td>
-        <td><%= instrument.start_date %></td>
-        <td><%= instrument.last_rev_date %></td>
+        <td>
+          <% if instrument.start_date != nil %>
+            <%= instrument.start_date.strftime("%d.%m.%Y") %>
+          <% end %>
+        </td>
+        <td>
+          <% if instrument.last_rev_date != nil %>
+            <%= instrument.last_rev_date.strftime("%d.%m.%Y") %>
+          <% end %>
+        </td>
         <td><%= instrument.description %></td>
         <td><%= instrument.planning %></td>
         <td><%= instrument.transboundary %></td>
