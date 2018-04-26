@@ -4,7 +4,7 @@ class ActorsGroupsController < AuthenticateController
   # GET /actors_groups
   # GET /actors_groups.json
   def index
-    @actors_groups = ActorsGroup.all.order(:name)
+    @actors_groups = ActorsGroup.all.order(updated_at: :desc)
   end
 
   # GET /actors_groups/1

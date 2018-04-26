@@ -4,7 +4,7 @@ class InstrumentsGroupsController < AuthenticateController
   # GET /instruments_groups
   # GET /instruments_groups.json
   def index
-    @instruments_groups = InstrumentsGroup.all
+    @instruments_groups = InstrumentsGroup.all.order(updated_at: :desc)
   end
 
   # GET /instruments_groups/1
