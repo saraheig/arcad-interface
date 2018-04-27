@@ -4,7 +4,7 @@ class DomainsController < AuthenticateController
   # GET /domains
   # GET /domains.json
   def index
-    @domains = Domain.all
+    @domains = Domain.all.order(updated_at: :desc)
   end
 
   # GET /domains/1
