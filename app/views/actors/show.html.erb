@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+<p id="notice"><%= notice %></p><br/>
 
 <p>
   <strong>Nom de l'acteur : </strong>
@@ -30,5 +30,6 @@
   <%= @actor.actors_group.name %>
 </p>
 
+<br/>
 <%= link_to 'Editer', edit_actor_path(@actor) %> |
 <%= link_to 'Voir tous les acteurs', actors_path %>
