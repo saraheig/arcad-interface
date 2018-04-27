@@ -10,7 +10,6 @@ Actor.delete_all
 ActorsGroup.delete_all
 Instrument.delete_all
 InstrumentsGroup.delete_all
-User.delete_all
 
 confederation = ActorsGroup.create!(
   name: 'Confédération',
@@ -206,6 +205,7 @@ Instrument.create!([{
 
 case Rails.env
 when "development"
+  User.delete_all
   User.create!(
     pseudo: 'tototutu',
     password: 'tototutu')
