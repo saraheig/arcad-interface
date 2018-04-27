@@ -41,7 +41,11 @@
 
 <p>
   <strong>Procédure de recours ? </strong>
-  <%= @instrument.appeal_proc %>
+  <% if @instrument.appeal_proc == true %>
+    Oui
+  <% else %>
+    Non
+  <% end %>
 </p>
 
 <p>

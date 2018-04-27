@@ -69,7 +69,33 @@
   <div class="field">
     Catégorie d'instruments* : <br/>
     <em>Champ obligatoire (l'instrument territorial doit appartenir à une des catégories d'instruments)</em><br/>
-    <%= form.select :instruments_group_id, InstrumentsGroup.all.collect { |group| ["Nom suisse -> " + group.name_ch + " ; Nom français -> " + group.name_fr, group.id] }, { :include_blank => "Choisir" } %>
+    <% categories = InstrumentsGroup.all %>
+    <% catoptions = Array.new %>
+    <% catselected = '' %>
+    <% type = request.path_info.split("/")[4] %>
+    <% categories.each do |category| %>
+      <% if category.name_ch != "" and category.name_fr != "" %>
+        <% catarray = [category.name_ch + " (ch) / " + category.name_fr + " (fr)", category.id] %>
+      <% elsif category.name_ch != "" and category.name_fr == "" %>
+        <% catarray = [category.name_ch + " (ch) / - (fr)", category.id] %>
+      <% elsif category.name_ch == "" and category.name_fr != "" %>
+        <% catarray = ["- (ch) / " + category.name_fr + " (fr)", category.id] %>
+      <% else %>
+        <% catarray = ["???", category.id] %>
+      <% end %>
+      <% catoptions.push(catarray) %>
+      <% if type == "edit" %>
+        <% if category.id == instrument.instruments_group_id %>
+          <% catselected = category.id %>
+        <% end %>
+      <% end %>
+    <% end %>
+    <% if type == "edit" %>
+      <%= form.select :instruments_group_id, options_for_select(catoptions, selected: catselected), id: :instruments_group_id %>
+    <% else %>
+      <% catoptions.unshift(["Choisir", -1]) %>
+      <%= form.select :instruments_group_id, options_for_select(catoptions), id: :instruments_group_id %>
+    <% end %>
     <%= link_to "Créer une nouvelle catégorie d'instruments", new_instruments_group_path %>
   </div><br/>
 
