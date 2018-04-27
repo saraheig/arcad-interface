@@ -1,0 +1,10 @@
+<p id="notice"><%= notice %></p><br/>
+
+<p>
+  <strong>Nom du domaine d'actions : </strong>
+  <%= @domain.name %>
+</p>
+
+<br/>
+<%= link_to 'Editer', edit_domain_path(@domain) %> |
+<%= link_to 'Voir tous les domaines d\'actions', domains_path %>

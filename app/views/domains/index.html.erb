@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Domaines d'actions</h1>
+<em>
+  Cette table contient l'ensemble des domaines d'actions.
+</em>
+
+<hr/>
+<%= link_to 'Ajouter un nouveau domaine d\'actions', new_domain_path %>
+<hr/>
+
+<table class="table table-striped table-bordered table-hover">
+  <thead>
+    <tr>
+      <th>Nom du domaine d'actions</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @domains.each do |domain| %>
+      <tr>
+        <td><%= domain.name %></td>
+        <td><%= link_to 'Editer', edit_domain_path(domain) %></td>
+        <td><%= link_to 'Supprimer', domain, method: :delete, data: { confirm: 'Etes-vous sûr ? Attention : La suppression de ce domaine d\'actions est irréversible.' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

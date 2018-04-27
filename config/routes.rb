@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :actors, path: "/tables/actors"
   resources :instruments_groups, path: "/tables/instrumentsGroups"
   resources :instruments, path: "/tables/instruments"
+  resources :domains, path: "/tables/domains"
 
   # Default route (if unknown url)
   match "*path" => redirect("/tables"), via: [:get, :post]

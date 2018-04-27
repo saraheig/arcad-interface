@@ -10,6 +10,7 @@ Actor.delete_all
 ActorsGroup.delete_all
 Instrument.delete_all
 InstrumentsGroup.delete_all
+Domain.delete_all
 
 confederation = ActorsGroup.create!(
   name: 'Confédération',
@@ -201,6 +202,22 @@ Instrument.create!([{
   appeal_proc: false,
   descr_appeal_proc: '',
   instruments_group: loiFederale
+}])
+
+Domain.create!([{
+  name: 'Transport'
+},{
+  name: 'Logement'
+},{
+  name: 'Environnement'
+},{
+  name: 'Bâti-urbanisme'
+},{
+  name: 'Développement économique'
+},{
+  name: 'Agriculture'
+},{
+  name: 'Energie'
 }])
 
 case Rails.env

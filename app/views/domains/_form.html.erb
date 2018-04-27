@@ -1,0 +1,27 @@
+<%= form_with(model: domain, local: true) do |form| %>
+  <% if domain.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(domain.errors.count, "erreur identifiée", "erreurs identifiées") %> : </h2>
+
+      <ul>
+      <% domain.errors.messages.values.each do |message| %>
+        <li><%= message[0] %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <hr/><h3>Informations sur le domaine d'actions</h3><br/>
+
+  <div class="field">
+    Nom du domaine d'actions* : <br/>
+    <em>Champ de type texte (maximum 50 caractères, espaces compris) et champ à valeur unique</em><br/>
+    <%= form.text_field :name, size: '43.5' %>
+  </div><br/>
+
+  <hr/>
+  <h6>* Champ obligatoire</h6>
+  <div class="actions">
+    <%= form.submit "Enregistrer" %>
+  </div>
+<% end %>
