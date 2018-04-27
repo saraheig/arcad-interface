@@ -1,4 +1,5 @@
 class InstrumentsGroup < ApplicationRecord
+  has_many :instruments, dependent: :destroy
   before_validation :strip_blanks
 
   validate :check_presence_namech_or_namefr

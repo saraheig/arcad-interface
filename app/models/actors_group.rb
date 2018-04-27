@@ -1,4 +1,5 @@
 class ActorsGroup < ApplicationRecord
+  has_many :actors, dependent: :destroy
   before_validation :strip_blanks
 
   validates_presence_of :name, :message => 'Le nom de la catégorie d\'acteurs doit être spécifié.'
