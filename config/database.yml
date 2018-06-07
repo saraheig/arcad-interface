@@ -80,6 +80,8 @@ test:
 #
 production:
   <<: *default
-  database: arcad_production
-  username: arcad
-  password: <%= ENV['ARCAD_DATABASE_PASSWORD'] %>
+  database: <%= ENV['ARCAD_INTERFACE_DATABASE_NAME'] %>
+  username: <%= ENV['ARCAD_INTERFACE_DATABASE_USERNAME'] %>
+  password: <%= ENV['ARCAD_INTERFACE_DATABASE_PASSWORD'] %>
+  host: <%= ENV['ARCAD_INTERFACE_DATABASE_HOST'] %>
+  port: <%= ENV['ARCAD_INTERFACE_DATABASE_PORT'] %>
