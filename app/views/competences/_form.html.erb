@@ -1,22 +1,27 @@
 <%= form_with(model: competence, local: true) do |form| %>
   <% if competence.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(competence.errors.count, "error") %> prohibited this competence from being saved:</h2>
+      <h2><%= pluralize(competence.errors.count, "erreur identifiée", "erreurs identifiées") %> :</h2>
 
       <ul>
-      <% competence.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+      <% competence.errors.messages.values.each do |message| %>
+        <li><%= message[0] %></li>
       <% end %>
       </ul>
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
+  <hr/><h3>Informations sur le champ de compétences</h3><br/>
 
+  <div class="field">
+    Nom du champ de compétences* : <br/>
+    <em>Champ de type texte (maximum 250 caractères, espaces compris) et champ à valeur unique</em><br/>
+    <%= form.text_field :name, size: '43.5' %>
+  </div><br/>
+
+  <hr/>
+  <h6>* Champ obligatoire</h6>
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Enregistrer" %>
   </div>
 <% end %>

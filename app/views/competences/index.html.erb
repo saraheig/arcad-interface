@@ -1,12 +1,19 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Competences</h1>
+<h1>Champs de compétences</h1>
+<em>
+  Cette table contient l'ensemble des champs de compétences.
+</em>
 
-<table>
+<hr/>
+<%= link_to 'Ajouter un nouveau champ de compétences', new_competence_path %>
+<hr/>
+
+<table class="table table-striped table-bordered table-hover">
   <thead>
     <tr>
-      <th>Name</th>
-      <th colspan="3"></th>
+      <th>Nom du champ de compétences</th>
+      <th colspan="2"></th>
     </tr>
   </thead>
 
@@ -14,14 +21,9 @@
     <% @competences.each do |competence| %>
       <tr>
         <td><%= competence.name %></td>
-        <td><%= link_to 'Show', competence %></td>
-        <td><%= link_to 'Edit', edit_competence_path(competence) %></td>
-        <td><%= link_to 'Destroy', competence, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Editer', edit_competence_path(competence) %></td>
+        <td><%= link_to 'Supprimer', competence, method: :delete, data: { confirm: 'Etes-vous sûr ? Attention : La suppression de ce champ de compétences est irréversible.' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Competence', new_competence_path %>

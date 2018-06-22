@@ -1,9 +1,10 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
+  <strong>Nom du champ de compétences :</strong>
   <%= @competence.name %>
 </p>
 
-<%= link_to 'Edit', edit_competence_path(@competence) %> |
-<%= link_to 'Back', competences_path %>
+<br/>
+<%= link_to 'Editer', edit_competence_path(@competence) %> |
+<%= link_to 'Voir tous les champs de compétences', competences_path %>
