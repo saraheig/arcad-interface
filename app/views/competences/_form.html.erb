@@ -1,0 +1,22 @@
+<%= form_with(model: competence, local: true) do |form| %>
+  <% if competence.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(competence.errors.count, "error") %> prohibited this competence from being saved:</h2>
+
+      <ul>
+      <% competence.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

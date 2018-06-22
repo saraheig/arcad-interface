@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :competences
   root to: redirect('/tables')
 
   resource :session, only: %i[new create destroy]
