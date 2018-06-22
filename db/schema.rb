@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_06_22_100219) do
+ActiveRecord::Schema.define(version: 2018_06_22_135544) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -70,6 +70,7 @@ ActiveRecord::Schema.define(version: 2018_06_22_100219) do
     t.bigint "instruments_group_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.date "under_revision_since"
     t.index ["instruments_group_id"], name: "index_instruments_on_instruments_group_id"
     t.index ["name"], name: "index_instruments_on_name", unique: true
   end
@@ -82,11 +83,14 @@ ActiveRecord::Schema.define(version: 2018_06_22_100219) do
     t.string "description", limit: 500
     t.string "country", limit: 20
     t.boolean "law"
-    t.boolean "plan"
     t.boolean "appeal_proc"
     t.string "descr_appeal_proc"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "type"
+    t.boolean "orientation"
+    t.boolean "prescriptive"
+    t.integer "validity_period"
     t.index ["name_ch", "name_fr"], name: "index_instruments_groups_on_name_ch_and_name_fr", unique: true
   end
 
