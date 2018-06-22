@@ -54,6 +54,13 @@
 </p>
 
 <p>
+  <strong>En révision depuis (date de début) : </strong>
+  <% if @instrument.under_revision_since != nil %>
+    <%= @instrument.under_revision_since.strftime("%d.%m.%Y") %>
+  <% end %>
+</p>
+
+<p>
   <strong>Catégorie d'instruments : </strong>
   <% if @instrument.instruments_group.name_ch != "" %>
     <%= @instrument.instruments_group.name_ch %> (ch) 

@@ -20,13 +20,13 @@
 
   <div class="field">
     Nom suisse de la catégorie d'instruments : <br/>
-    <em>Champ de type texte (maximum 50 caractères, espaces compris)</em><br/>
+    <em>Champ de type texte (maximum 250 caractères, espaces compris)</em><br/>
     <%= form.text_field :name_ch, size: '43.5' %>
   </div><br/>
 
   <div class="field">
     Nom français de la catégorie d'instruments : <br/>
-    <em>Champ de type texte (maximum 50 caractères, espaces compris)</em><br/>
+    <em>Champ de type texte (maximum 250 caractères, espaces compris)</em><br/>
     <%= form.text_field :name_fr, size: '43.5' %>
   </div><br/>
 
@@ -60,11 +60,6 @@
   </div><br/>
 
   <div class="field">
-    Plan ? 
-    <%= form.check_box :plan %>
-  </div><br/>
-
-  <div class="field">
     Procédure de recours ? 
     <%= form.check_box :appeal_proc %>
   </div><br/>
@@ -73,6 +68,28 @@
     Description de la procédure de recours : <br/>
     <em>Champ de type texte (nombre illimité de caractères)</em><br/>
     <%= form.text_area :descr_appeal_proc, size: '40x5' %>
+  </div><br/>
+
+  <div class="field">
+    Type: <br/>
+    <em>Champ de type liste déroulante (quatre choix possibles : plan, schéma, contrat, charte)</em><br/>
+    <%= form.select :kind, options_for_select([["Choisir", 0], ["Plan", 1], ["Schéma", 2], ["Contrat", 3], ["Charte", 4]], selected: instruments_group.kind), id: :intruments_group_kind %>
+  </div><br/>
+
+  <div class="field">
+    Orientation ?
+    <%= form.check_box :orientation %>
+  </div><br/>
+
+  <div class="field">
+    Prescriptif ?
+    <%= form.check_box :prescriptive %>
+  </div><br/>
+
+  <div class="field">
+    Durée de validité : <br/>
+    <em>Champ de type nombre entier</em><br/>
+    <%= form.text_field :validity_period, size: '10' %>
   </div><br/>
 
   <hr/>

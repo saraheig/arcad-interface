@@ -64,6 +64,11 @@
     <%= form.text_area :descr_appeal_proc, size: '40x5' %>
   </div><br/>
 
+  <div class="field">
+    En révision depuis (date de début) : <br/>
+    <%= form.date_select :under_revision_since, :order => [:day, :month, :year], :start_year => Date.today.year, :end_year => 1700, :use_two_digit_numbers => true, prompt: { day: 'Choisir le jour', month: 'Choisir le mois', year: 'Choisir l\'année' } %>
+  </div><br/>
+
   <hr/><h3>Classification de l'instrument</h3><br/>
 
   <div class="field">

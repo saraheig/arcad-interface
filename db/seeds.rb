@@ -6,6 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+Competence.delete_all
 Actor.delete_all
 ActorsGroup.delete_all
 Instrument.delete_all
@@ -152,9 +153,12 @@ planDirCant = InstrumentsGroup.create!(
   description: '',
   country: 'Suisse',
   law: true,
-  plan: true,
   appeal_proc: false,
-  descr_appeal_proc: '')
+  descr_appeal_proc: '',
+  kind: 0,
+  orientation: false,
+  prescriptive: false,
+  validity_period: 0)
 
 loiFederale = InstrumentsGroup.create!(
   name_ch: 'Loi fédérale',
@@ -164,9 +168,12 @@ loiFederale = InstrumentsGroup.create!(
   description: '',
   country: 'Suisse',
   law: true,
-  plan: false,
   appeal_proc: false,
-  descr_appeal_proc: '')
+  descr_appeal_proc: '',
+  kind: 0,
+  orientation: false,
+  prescriptive: false,
+  validity_period: 0)
 
 Instrument.create!([{
   name: 'Plan directeur cantonal Neuchâtelois - 2ème version',
@@ -189,6 +196,7 @@ Instrument.create!([{
     A.3 - Réorganiser le réseau routier, fiches R_31 et R_32',
   appeal_proc: false,
   descr_appeal_proc: '',
+  under_revision_since: '',
   instruments_group: planDirCant
 },{
   name: 'Loi fédérale sur l\'aménagement du territoire',
@@ -201,6 +209,7 @@ Instrument.create!([{
   transboundary: 'Art.7 Al. 3 : "Les cantons contigus à la frontière nationale s’emploient à collaborer avec les autorités des régions limitrophes des pays voisins lorsque les mesures qu’ils prennent peuvent avoir des effets au-delà de la frontière."',
   appeal_proc: false,
   descr_appeal_proc: '',
+  under_revision_since: '',
   instruments_group: loiFederale
 }])
 

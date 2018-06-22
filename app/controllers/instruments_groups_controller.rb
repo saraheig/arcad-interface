@@ -69,6 +69,6 @@ class InstrumentsGroupsController < AuthenticateController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def instruments_group_params
-      params.require(:instruments_group).permit(:name_ch, :name_fr, :abbrev_ch, :abbrev_fr, :description, :country, :law, :plan, :appeal_proc, :descr_appeal_proc)
+      params.require(:instruments_group).permit(:name_ch, :name_fr, :abbrev_ch, :abbrev_fr, :description, :country, :law, :appeal_proc, :descr_appeal_proc, :kind, :orientation, :prescriptive, :validity_period)
     end
 end

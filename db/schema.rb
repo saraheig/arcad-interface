@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_06_22_135544) do
+ActiveRecord::Schema.define(version: 2018_06_22_142321) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -76,8 +76,8 @@ ActiveRecord::Schema.define(version: 2018_06_22_135544) do
   end
 
   create_table "instruments_groups", force: :cascade do |t|
-    t.string "name_ch", limit: 50
-    t.string "name_fr", limit: 50
+    t.string "name_ch", limit: 250
+    t.string "name_fr", limit: 250
     t.string "abbrev_ch", limit: 10
     t.string "abbrev_fr", limit: 10
     t.string "description", limit: 500
@@ -87,7 +87,7 @@ ActiveRecord::Schema.define(version: 2018_06_22_135544) do
     t.string "descr_appeal_proc"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "type"
+    t.integer "kind"
     t.boolean "orientation"
     t.boolean "prescriptive"
     t.integer "validity_period"

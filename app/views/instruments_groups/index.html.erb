@@ -19,14 +19,18 @@
       <th>Description de la catégorie d'instruments</th>
       <th>Pays de la catégorie d'instruments</th>
       <th>Droit public ?</th>
-      <th>Plan ?</th>
       <th>Procédure de recours ?</th>
       <th>Description de la procédure de recours</th>
+      <th>Type de la catégorie d'instruments</th>
+      <th>Orientation ?</th>
+      <th>Prescriptif ?</th>
+      <th>Durée de validité</th>
       <th colspan="2"></th>
     </tr>
   </thead>
 
   <tbody>
+    <% type = [["Aucun type", 0], ["Plan", 1], ["Schéma", 2], ["Contrat", 3], ["Charte", 4]] %>
     <% @instruments_groups.each do |instruments_group| %>
       <tr>
         <td><%= instruments_group.name_ch %></td>
@@ -43,13 +47,6 @@
           <% end %>
         </td>
         <td>
-          <% if instruments_group.plan == true %>
-            Oui
-          <% else %>
-            Non
-          <% end %>
-        </td>
-        <td>
           <% if instruments_group.appeal_proc == true %>
             Oui
           <% else %>
@@ -57,6 +54,22 @@
           <% end %>
         </td>
         <td><%= instruments_group.descr_appeal_proc %></td>
+        <td><%= type[instruments_group.kind][0] %></td>
+        <td>
+          <% if instruments_group.orientation == true %>
+            Oui
+          <% else %>
+            Non
+          <% end %>
+        </td>
+        <td>
+          <% if instruments_group.prescriptive == true %>
+            Oui
+          <% else %>
+            Non
+          <% end %>
+        </td>
+        <td><%= instruments_group.validity_period %></td>
         <td><%= link_to 'Editer', edit_instruments_group_path(instruments_group) %></td>
         <td><%= link_to 'Supprimer', instruments_group, method: :delete, data: { confirm: 'Etes-vous sûr ? Attention : La suppression de cette catégorie d\'instruments est irréversible et supprimera tous les instruments associés.' } %></td>
       </tr>

@@ -21,6 +21,7 @@
       <th>Contenu "Transfrontalier"</th>
       <th>Procédure de recours ?</th>
       <th>Description de la procédure de recours</th>
+      <th>En révision depuis (date de début)</th>
       <th>Catégorie d'instruments</th>
       <th colspan="2"></th>
     </tr>
@@ -52,6 +53,11 @@
           <% end %>
         </td>
         <td><%= instrument.descr_appeal_proc %></td>
+        <td>
+          <% if instrument.under_revision_since != nil %>
+            <%= instrument.under_revision_since.strftime("%d.%m.%Y") %>
+          <% end %>
+        </td>
         <td>
           <% if instrument.instruments_group.name_ch != "" %>
             <%= instrument.instruments_group.name_ch %> (ch) 
